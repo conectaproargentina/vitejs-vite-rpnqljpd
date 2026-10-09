@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type { CSSProperties, FormEvent } from 'react';
 import { supabase } from './supabase';
 
 export default function App() {
@@ -52,7 +53,7 @@ export default function App() {
     },
   ];
 
-  const handleSubmitPresupuesto = async (e) => {
+  const handleSubmitPresupuesto = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!nombre || !email) {
       alert('Por favor completá tu nombre y correo.');
@@ -311,7 +312,7 @@ export default function App() {
   );
 }
 
-const styles = {
+const styles: Record<string, CSSProperties> = {
   page: {
     fontFamily: 'sans-serif',
     backgroundColor: '#f8f9fa',
